@@ -1,0 +1,20 @@
+{
+  "name": "travis-multirunner",
+  "private": true,
+  "scripts": {
+    "test": "testling -x ./start-$BROWSER.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DamonOehlman/travis-multirunner.git"
+  },
+  "author": "Damon Oehlman <damon.oehlman@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "tape": "^3.0.1",
+    "testling": "^1.7.1"
+  },
+  "testling": {
+    "files": "test/all.js"
+  }
+}
