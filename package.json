@@ -1,6 +1,5 @@
 {
   "name": "travis-multirunner",
-  "private": true,
   "scripts": {
     "test": "testling -x ./start-$BROWSER.sh"
   },
