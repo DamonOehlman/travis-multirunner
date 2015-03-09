@@ -2,20 +2,6 @@
 set -x
 set -e
 
-# firefox base details
-MOZILLA_BUILDS=http://ftp.mozilla.org/pub/mozilla.org/firefox
-NIGHTLY_VERSION="39.0a1"
-
-function firefoxRelease {
-  echo $MOZILLA_BUILDS/releases/$1/linux-x86_64/en-US/firefox-$1.tar.bz2
-}
-
-# initialise the firefox versions
-declare -A FIREFOX_VERSIONS
-FIREFOX_VERSIONS[stable]=$(firefoxRelease 34.0)
-FIREFOX_VERSIONS[beta]=$(firefoxRelease 35.0b1)
-FIREFOX_VERSIONS[nightly]=$MOZILLA_BUILDS/nightly/latest-trunk/firefox-$NIGHTLY_VERSION.en-US.linux-x86_64.tar.bz2
-
 # Make sure /dev/shm has correct permissions.
 ls -l /dev/shm
 sudo chmod 1777 /dev/shm
@@ -26,6 +12,9 @@ ls -l /dev/shm
 pushd `dirname $0` > /dev/null
 SCRIPTPATH=`pwd -P`
 popd > /dev/null
+
+# firefox base details
+source $SCRIPT_PATH/firefox-versions.sh
 
 # setup the virtual environment
 # as per: https://github.com/mozilla-b2g/gaia/blob/master/.travis.yml#L3
