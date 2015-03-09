@@ -4,6 +4,7 @@ set -e
 
 # firefox base details
 MOZILLA_BUILDS=http://ftp.mozilla.org/pub/mozilla.org/firefox
+NIGHTLY_VERSION="39.0a1"
 
 function firefoxRelease {
   echo $MOZILLA_BUILDS/releases/$1/linux-x86_64/en-US/firefox-$1.tar.bz2
@@ -11,9 +12,9 @@ function firefoxRelease {
 
 # initialise the firefox versions
 declare -A FIREFOX_VERSIONS
-FIREFOX_VERSIONS[stable]=$(firefoxRelease 33.0)
-FIREFOX_VERSIONS[beta]=$(firefoxRelease 34.0b5)
-FIREFOX_VERSIONS[nightly]=$MOZILLA_BUILDS/nightly/latest-trunk/firefox-36.0a1.en-US.linux-x86_64.tar.bz2
+FIREFOX_VERSIONS[stable]=$(firefoxRelease 34.0)
+FIREFOX_VERSIONS[beta]=$(firefoxRelease 35.0b1)
+FIREFOX_VERSIONS[nightly]=$MOZILLA_BUILDS/nightly/latest-trunk/firefox-$NIGHTLY_VERSION.en-US.linux-x86_64.tar.bz2
 
 # Make sure /dev/shm has correct permissions.
 ls -l /dev/shm
