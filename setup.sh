@@ -14,7 +14,7 @@ SCRIPTPATH=`pwd -P`
 popd > /dev/null
 
 # firefox base details
-source $SCRIPT_PATH/firefox-versions.sh
+source $SCRIPTPATH/firefox-versions.sh
 
 # setup the virtual environment
 # as per: https://github.com/mozilla-b2g/gaia/blob/master/.travis.yml#L3
