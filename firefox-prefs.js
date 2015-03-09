@@ -21,5 +21,6 @@ user_pref("browser.startup.page", 0);
 // user_pref("browser.tabs.warnOnClose", false);
 // user_pref("browser.tabs.warnOnCloseOtherTabs", false);
 // user_pref("app.update.auto", false);
+user_pref("app.update.enabled", false);
 user_pref("browser.startup.page", 0);
 user_pref("browser.shell.checkDefaultBrowser", false);
