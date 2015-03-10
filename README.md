@@ -14,10 +14,10 @@ First, create a `.travis.yml` folder in your project that looks similar to the f
 language: node_js
 node_js:
 - 0.10
+
 notifications:
   email:
-  - damon.oehlman@nicta.com.au
-  irc: irc.freenode.org#rtc.io
+  - developer@test.com
 
 env:
   matrix:
@@ -36,9 +36,7 @@ matrix:
     - env: BROWSER=firefox BVER=nightly
 
 before_install:
-  - mkdir -p .trunner
-  - curl -s https://codeload.github.com/DamonOehlman/travis-multirunner/tar.gz/master | tar -xz --strip-components=1 --directory .trunner
-  - ./.trunner/setup.sh
+  - ./node_modules/travis-multirunner/setup.sh
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 
