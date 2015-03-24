@@ -36,9 +36,11 @@ matrix:
     - env: BROWSER=firefox BVER=nightly
 
 before_install:
-  - ./node_modules/travis-multirunner/setup.sh
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+
+before_script:
+  - ./node_modules/travis-multirunner/setup.sh
 
 after_failure:
   - for file in *.log; do echo $file; echo "======================"; cat $file; done || true
