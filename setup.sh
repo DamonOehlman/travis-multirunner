@@ -2,11 +2,6 @@
 set -x
 set -e
 
-# Make sure /dev/shm has correct permissions.
-ls -l /dev/shm
-sudo chmod 1777 /dev/shm
-ls -l /dev/shm
-
 # determine the script path
 # ref: http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
 pushd `dirname $0` > /dev/null
@@ -18,12 +13,12 @@ source $SCRIPTPATH/firefox-versions.sh
 
 # setup the virtual environment
 # as per: https://github.com/mozilla-b2g/gaia/blob/master/.travis.yml#L3
-source $SCRIPTPATH/venv.sh
+# source $SCRIPTPATH/venv.sh
 
 uname -a
 cat /etc/lsb-release
 
-sudo apt-get update --fix-missing
+# sudo apt-get update --fix-missing
 echo "Getting $BVER version of $BROWSER"
 
 case $BROWSER in
@@ -58,14 +53,13 @@ chrome)
   ;;
 
 firefox)
-  sudo rm -f /usr/local/bin/firefox
-  sudo apt-get install pulseaudio
+  #sudo rm -f /usr/local/bin/firefox
+  #sudo apt-get install pulseaudio
 
-  sudo mkdir -p /opt/firefox/$BVER
-  sudo chown $USER:$USER /opt/firefox/$BVER
+  mkdir -p ~/firefox/$BVER
   wget ${FIREFOX_VERSIONS[$BVER]} -O firefox.tar.bz2
-  tar xjf firefox.tar.bz2 --strip-components=1 --directory /opt/firefox/$BVER
-  sudo ln /opt/firefox/$BVER/firefox /usr/local/bin/firefox -s
+  tar xjf firefox.tar.bz2 --strip-components=1 --directory ~/firefox/$BVER
+  ln ~/firefox/$BVER/firefox ~/bin/firefox -sf
 
   which firefox
   ls -l `which firefox`
