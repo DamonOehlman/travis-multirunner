@@ -30,4 +30,4 @@ after_failure:
 
 notifications:
   email:
-  - damon.oehlman@gmail.com
+  - Damon Oehlman <damon.oehlman@gmail.com>
