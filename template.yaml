@@ -31,4 +31,4 @@ after_failure:
 
 notifications:
   email:
-  - {{ pkg.author }}
+  - {{ package.author.email }}
