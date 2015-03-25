@@ -1,5 +1,8 @@
 {
   "name": "travis-multirunner",
+  "bin": {
+    "travis-sync": "./bin/travis-sync"
+  },
   "scripts": {
     "test": "testling -x ./start-$BROWSER.sh"
   },

@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+var fs = require('fs');
+var path = require('path');
+var formatter = require('formatter');
+
+var templateContent = fs.readFileSync(path.resolve(__dirname, '../template.yaml'), 'utf8');
+var template = formatter(templateContent);
+var package = require(path.resolve('package.json'));
+
+fs.writeFileSync(path.resolve('.travis.yml'), template({ pkg: package }), 'utf8');
