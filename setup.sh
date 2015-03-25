@@ -18,6 +18,10 @@ source $SCRIPTPATH/firefox-versions.sh
 uname -a
 cat /etc/lsb-release
 
+# create the local user bin path
+mkdir -p ~/bin
+echo $PATH
+
 # sudo apt-get update --fix-missing
 echo "Getting $BVER version of $BROWSER"
 
@@ -59,7 +63,7 @@ firefox)
   mkdir -p ~/firefox/$BVER
   wget ${FIREFOX_VERSIONS[$BVER]} -O firefox.tar.bz2
   tar xjf firefox.tar.bz2 --strip-components=1 --directory ~/firefox/$BVER
-  ln ~/firefox/$BVER/firefox ~/bin/firefox -sf
+  ln ~/firefox/$BVER/firefox ~/bin/firefox -s
 
   which firefox
   ls -l `which firefox`
