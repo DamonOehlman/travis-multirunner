@@ -5,7 +5,7 @@
   },
   "scripts": {
     "test": "testling -x ./start-$BROWSER.sh",
-    "install": "./bin/travis-sync"
+    "postinstall": "./bin/travis-sync"
   },
   "repository": {
     "type": "git",
