@@ -14,6 +14,10 @@ TARGET_URL=`echo $TARGET_BROWSER | cut -d'|' -f4`
 TARGET_VERSION=`echo $TARGET_BROWSER | cut -d'|' -f3`
 TARGET_PATH=~/browsers/$BROWSER/$TARGET_VERSION
 
+# make the local bin directory and include it in the path
+mkdir -p ~/bin
+export PATH=~/bin:$PATH
+
 # setup the virtual environment
 # as per: https://github.com/mozilla-b2g/gaia/blob/master/.travis.yml#L3
 # source $SCRIPTPATH/venv.sh
