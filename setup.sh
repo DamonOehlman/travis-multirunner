@@ -17,13 +17,6 @@ TARGET_PATH=~/browsers/$BROWSER/$TARGET_VERSION
 # make the local bin directory and include it in the path
 mkdir -p ~/bin
 
-# setup the virtual environment
-# as per: https://github.com/mozilla-b2g/gaia/blob/master/.travis.yml#L3
-# source $SCRIPTPATH/venv.sh
-
-# uname -a
-# cat /etc/lsb-release
-
 # install if required
 if [ ! -d $TARGET_PATH ]; then
   echo "getting $BROWSER $TARGET_VERSION"
