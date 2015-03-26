@@ -30,7 +30,3 @@ after_failure:
 notifications:
   email:
   - damon.oehlman@gmail.com
-
-cache:
-  directories:
-    - $HOME/browsers
