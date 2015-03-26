@@ -33,7 +33,7 @@ fi
 # create the symbolic links
 case $BROWSER in
   chrome)
-    ln -sf $TARGET_PATH/google-chrome ~/bin/chrome-$BVER
+    ln -sf $TARGET_PATH/chrome ~/bin/chrome-$BVER
     ~/bin/chrome-$BVER --version
     ;;
   firefox)
