@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+BVER=${BVER-stable}
 FIREFOX_COMMAND=~/bin/firefox-$BVER
 FIREFOX_HOME=$HOME/.mozilla/firefox
 
