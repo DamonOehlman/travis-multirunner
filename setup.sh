@@ -9,7 +9,7 @@ SCRIPTPATH=`pwd -P`
 popd > /dev/null
 
 # get the browser version string
-TARGET_BROWSER=`./node_modules/.bin/browser-version $BROWSER $BVER`
+TARGET_BROWSER=`$SCRIPTPATH/node_modules/.bin/browser-version $BROWSER $BVER`
 TARGET_URL=`echo $TARGET_BROWSER | cut -d'|' -f4`
 TARGET_VERSION=`echo $TARGET_BROWSER | cut -d'|' -f3`
 TARGET_PATH=~/browsers/$BROWSER/$TARGET_VERSION
@@ -27,7 +27,7 @@ mkdir -p ~/bin
 # install if required
 if [ ! -d $TARGET_PATH ]; then
   echo "getting $BROWSER $TARGET_VERSION"
-  source ./install-$BROWSER.sh "$TARGET_URL" "$TARGET_PATH"
+  source $SCRIPTPATH/install-$BROWSER.sh "$TARGET_URL" "$TARGET_PATH"
 fi
 
 # create the symbolic links
