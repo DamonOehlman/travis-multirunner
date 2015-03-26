@@ -11,13 +11,10 @@ This is a set of scripts designed to help you get up and running multibrowser te
 First, create a `.travis.yml` folder in your project that looks similar to the followng:
 
 ```yaml
+sudo: false
 language: node_js
 node_js:
 - 0.10
-
-notifications:
-  email:
-  - developer@test.com
 
 env:
   matrix:
@@ -26,7 +23,7 @@ env:
     - BROWSER=chrome  BVER=unstable
     - BROWSER=firefox BVER=stable
     - BROWSER=firefox BVER=beta
-    - BROWSER=firefox BVER=nightly
+    - BROWSER=firefox BVER=unstable
 
 matrix:
   fast_finish: true
@@ -35,15 +32,17 @@ matrix:
     - env: BROWSER=chrome  BVER=unstable
     - env: BROWSER=firefox BVER=nightly
 
-before_install:
+before_script:
+  - ./setup.sh
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 
-before_script:
-  - ./node_modules/travis-multirunner/setup.sh
-
 after_failure:
   - for file in *.log; do echo $file; echo "======================"; cat $file; done || true
+
+notifications:
+  email:
+  - {{ package.author.email }}
 ```
 
 The most interesting part of the configuration file above is definitely the [`before_install`](http://docs.travis-ci.com/user/build-configuration/#before_install) section which defines a number of commands that will be executed in the TRAVIS environment prior to running the language appropriate `install` command.
