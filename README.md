@@ -8,7 +8,13 @@ This is a set of scripts designed to help you get up and running multibrowser te
 
 ## Usage
 
-Using `travis-multirunner` has never been easier, simply install using `npm install travis-multirunner@latest --save-dev` and most of the work will be done for you.  A `.travis.yml` configuration file will be generated from the [`template.yaml`](https://github.com/DamonOehlman/travis-multirunner/blob/master/template.yaml) file in this repo and should allow you to start making use of environment variable driven travis [build matrix](http://docs.travis-ci.com/user/build-configuration/#The-Build-Matrix) builds.
+Using `travis-multirunner` has never been easier, simply install using:
+
+```
+npm install travis-multirunner@latest --save-dev
+```
+
+Most of the work will be done for you!  A `.travis.yml` configuration file will be generated from the [`template.yaml`](https://github.com/DamonOehlman/travis-multirunner/blob/master/template.yaml) file in this repo and should allow you to start making use of environment variable driven travis [build matrix](http://docs.travis-ci.com/user/build-configuration/#The-Build-Matrix) builds.
 
 ### Use with testling
 
