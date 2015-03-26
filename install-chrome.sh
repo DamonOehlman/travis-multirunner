@@ -11,4 +11,4 @@ dpkg -X $FNAME ./browser-tmp
 
 # make the target directory
 mkdir -p $2
-mv ./browser-tmp/opt/google/chrome/* $2
+mv ./browser-tmp/opt/google/chrome*/* $2
