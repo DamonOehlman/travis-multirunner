@@ -9,6 +9,8 @@ pushd `dirname $0` > /dev/null
 SCRIPTPATH=`pwd -P`
 popd > /dev/null
 
+echo "firefox start scriptpath = $SCRIPTPATH"
+
 # set the prefs location
 PREFS=$SCRIPTPATH/firefox-prefs.js
 
