@@ -33,7 +33,7 @@ matrix:
     - env: BROWSER=firefox BVER=nightly
 
 before_script:
-  - ./setup.sh
+  - ./node_modules/travis-multirunner/setup.sh
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 
