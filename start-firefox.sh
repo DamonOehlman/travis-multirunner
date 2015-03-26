@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-FIREFOX_COMMAND=${FIREFOX_COMMAND-firefox}
+FIREFOX_COMMAND=~/bin/firefox-$BVER
 FIREFOX_HOME=$HOME/.mozilla/firefox
 
 # determine the script path

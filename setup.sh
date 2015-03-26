@@ -16,7 +16,6 @@ TARGET_PATH=~/browsers/$BROWSER/$TARGET_VERSION
 
 # make the local bin directory and include it in the path
 mkdir -p ~/bin
-export PATH=~/bin:$PATH
 
 # setup the virtual environment
 # as per: https://github.com/mozilla-b2g/gaia/blob/master/.travis.yml#L3
@@ -34,10 +33,12 @@ fi
 # create the symbolic links
 case $BROWSER in
   chrome)
-    ln -sf $TARGET_PATH/google-chrome ~/bin/google-chrome
+    ln -sf $TARGET_PATH/google-chrome ~/bin/chrome-$BVER
+    ~/bin/chrome-$BVER --version
     ;;
   firefox)
-    ln -sf $TARGET_PATH/firefox ~/bin/firefox
+    ln -sf $TARGET_PATH/firefox ~/bin/firefox-$BVER
+    ~/bin/firefox-$BVER --version
     ;;
 esac
 
