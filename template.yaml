@@ -33,4 +33,4 @@ notifications:
 
 cache:
   directories:
-    - $HOME/browsers
+    - $CACHE_DIR

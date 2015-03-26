@@ -41,6 +41,8 @@ case $BROWSER in
     ;;
 esac
 
+export CACHE_DIR=$TARGET_PATH
+
 # # create the local user bin path
 # mkdir -p ~/bin
 # export PATH=~/bin:$PATH
