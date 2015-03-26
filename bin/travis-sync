@@ -4,7 +4,15 @@ var path = require('path');
 var formatter = require('formatter');
 var normalize = require('normalize-package-data');
 
-var package = require(path.resolve('package.json'));
+var reNodeModules = /node_modules\/?$/;
+var scriptPath = process.argv[1];
+var targetPath = process.cwd();
+
+if (reNodeModules.test(path.resolve(scriptPath, '..'))) {
+  targetPath = path.resolve(scriptPath, '..', '..');
+}
+
+var package = require(path.resolve(targetPath, 'package.json'));
 var templateContent = fs.readFileSync(path.resolve(__dirname, '../template.yaml'), 'utf8');
 var template = formatter(templateContent);
 
@@ -12,4 +20,4 @@ var template = formatter(templateContent);
 normalize(package);
 
 // write the output
-fs.writeFileSync(path.resolve('.travis.yml'), template({ package: package }), 'utf8');
+fs.writeFileSync(path.resolve(targetPath, '.travis.yml'), template({ package: package }), 'utf8');
