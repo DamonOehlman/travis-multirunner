@@ -41,15 +41,3 @@ case $BROWSER in
     ~/bin/firefox-$BVER --version
     ;;
 esac
-
-export CACHE_DIR=$TARGET_PATH
-
-# # create the local user bin path
-# mkdir -p ~/bin
-# export PATH=~/bin:$PATH
-# 
-# echo "Getting $BVER version of $BROWSER"
-# source browsers/$BROWSER.sh
-
-# setup the loopback video
-# ./setup-loopbackvideo.sh
