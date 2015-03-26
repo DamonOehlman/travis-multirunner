@@ -18,11 +18,39 @@ Most of the work will be done for you!  A `.travis.yml` configuration file will 
 
 ### Use with testling
 
-To use travis-multirunner in conjunection with [`testling`](https://github.com/substack/testling), use the following command as part of you `npm test` command:
+For use with [`testling`](https://github.com/substack/testling):
 
-```
-testling -x ./start-$BROWSER.sh
-```
+- install required dev dependencies
+  
+  ```
+  npm install testling --save-dev
+  ```
+  
+- Add the following command to your npm `test` script:
+
+  ```
+  testling -x start-$BROWSER
+  ```
+
+### Use with broth
+
+For use with [`broth`](https://github.com/DamonOehlman/broth):
+
+- install required dev dependencies
+  
+  ```
+  npm install browserify broth tap-spec --save-dev
+  ```
+  
+- Add the following command to your npm `test` script:
+
+  ```
+  browserify test/all.js | broth start-$BROWSER | tap-spec
+  ```
+
+### Use with smokestack
+
+Use with [`smokestack`](https://github.com/hughsk/smokestack) has not yet been investigated...
 
 ## Prior Art
 
