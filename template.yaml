@@ -30,7 +30,3 @@ after_failure:
 notifications:
   email:
   - {{ package.author.email }}
-
-cache:
-  directories:
-    - browsers
