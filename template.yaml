@@ -19,10 +19,8 @@ matrix:
     - env: BROWSER=chrome  BVER=unstable
     - env: BROWSER=firefox BVER=nightly
 
-before_install:
-  - ./setup.sh
-
 before_script:
+  - ./setup.sh
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 
