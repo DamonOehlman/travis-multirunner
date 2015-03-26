@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -x
+# set -x
 set -e
 
 # determine the script path
@@ -8,22 +8,41 @@ pushd `dirname $0` > /dev/null
 SCRIPTPATH=`pwd -P`
 popd > /dev/null
 
-# firefox base details
-source $SCRIPTPATH/firefox-versions.sh
+# get the browser version string
+TARGET_BROWSER=`./node_modules/.bin/browser-version $BROWSER $BVER`
+TARGET_URL=`echo $TARGET_BROWSER | cut -d'|' -f4`
+TARGET_VERSION=`echo $TARGET_BROWSER | cut -d'|' -f3`
+TARGET_PATH=~/browsers/$BROWSER/$TARGET_VERSION
 
 # setup the virtual environment
 # as per: https://github.com/mozilla-b2g/gaia/blob/master/.travis.yml#L3
 # source $SCRIPTPATH/venv.sh
 
-uname -a
-cat /etc/lsb-release
+# uname -a
+# cat /etc/lsb-release
 
-# create the local user bin path
-mkdir -p ~/bin
-export PATH=~/bin:$PATH
+# install if required
+if [ ! -d $TARGET_PATH ]; then
+  echo "getting $BROWSER $TARGET_VERSION"
+  source ./install-$BROWSER.sh "$TARGET_URL" "$TARGET_PATH"
+fi
 
-echo "Getting $BVER version of $BROWSER"
-source browsers/$BROWSER.sh
+# create the symbolic links
+case $BROWSER in
+  chrome)
+    ln -sf $TARGET_PATH/google-chrome ~/bin/google-chrome
+    ;;
+  firefox)
+    ln -sf $TARGET_PATH/firefox ~/bin/firefox
+    ;;
+esac
+
+# # create the local user bin path
+# mkdir -p ~/bin
+# export PATH=~/bin:$PATH
+# 
+# echo "Getting $BVER version of $BROWSER"
+# source browsers/$BROWSER.sh
 
 # setup the loopback video
 # ./setup-loopbackvideo.sh
