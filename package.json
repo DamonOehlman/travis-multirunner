@@ -1,7 +1,9 @@
 {
   "name": "travis-multirunner",
   "bin": {
-    "travis-sync": "./bin/travis-sync"
+    "travis-sync": "./bin/travis-sync",
+    "start-chrome": "./start-chrome.sh",
+    "start-firefox": "./start-firefox.sh"
   },
   "scripts": {
     "test": "testling -x ./start-$BROWSER.sh",
