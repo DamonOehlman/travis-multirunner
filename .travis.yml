@@ -17,7 +17,7 @@ matrix:
 
   allow_failures:
     - env: BROWSER=chrome  BVER=unstable
-    - env: BROWSER=firefox BVER=nightly
+    - env: BROWSER=firefox BVER=unstable
 
 before_script:
   - ./setup.sh
