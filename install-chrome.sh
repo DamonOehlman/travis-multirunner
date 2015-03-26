@@ -9,6 +9,9 @@ rm -rf ./browser-tmp
 wget $1
 dpkg -X $FNAME ./browser-tmp
 
+# remove the broken link
+rm -rf ./browser-tmp/opt/google/chrome*/google-chrome
+
 # make the target directory
 mkdir -p $2
 mv ./browser-tmp/opt/google/chrome*/* $2
