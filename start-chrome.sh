@@ -3,6 +3,7 @@ DEBUG_OPTS="--enable-logging --v=1 --vmodule=*third_party/libjingle/*=3,*=0"
 EXTRA_OPTS="--no-sandbox --disable-setuid-sandbox --allow-sandbox-debugging"
 
 google-chrome \
+  --disable-setuid-sandbox \
   --console \
   --no-first-run $@ \
 #  --log-level=3 \
