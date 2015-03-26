@@ -1,6 +1,6 @@
 # Travis Multirunner
 
-This is a set of scripts designed to help you get up and running multibrowser tests on [travis](http://travis-ci.org). The scripts themselves are designed to be fetched during a travis `before_install` process and used to prepare your environment.
+This is a set of scripts designed to help you get up and running multibrowser tests on [travis](http://travis-ci.org). The scripts themselves are designed to be fetched during a travis `before_script` process and used to prepare your environment.
 
 [![NPM](https://nodei.co/npm/travis-multirunner.png)](https://nodei.co/npm/travis-multirunner/)
 
