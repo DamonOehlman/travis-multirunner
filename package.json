@@ -4,7 +4,8 @@
     "travis-sync": "./bin/travis-sync"
   },
   "scripts": {
-    "test": "testling -x ./start-$BROWSER.sh"
+    "test": "testling -x ./start-$BROWSER.sh",
+    "install": "./bin/travis-sync"
   },
   "repository": {
     "type": "git",
