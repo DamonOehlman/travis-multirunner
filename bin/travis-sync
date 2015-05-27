@@ -20,4 +20,6 @@ var template = formatter(templateContent);
 normalize(package);
 
 // write the output
-fs.writeFileSync(path.resolve(targetPath, '.travis.yml'), template({ package: package }), 'utf8');
+if (!fs.existsSync(path.resolve(targetPath, '.travis.yml'))) {
+  fs.writeFileSync(path.resolve(targetPath, '.travis.yml'), template({ package: package }), 'utf8');
+}
