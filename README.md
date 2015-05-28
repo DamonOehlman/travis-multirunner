@@ -52,6 +52,22 @@ For use with [`broth`](https://github.com/DamonOehlman/broth):
 
 Use with [`smokestack`](https://github.com/hughsk/smokestack) has not yet been investigated...
 
+## Contributing
+
+If you want to patch travis-multirunner, here's what you have to do:
+
+- clone this repo
+- npm install
+- export BROWSER=chrome BVER=stable (or any other combo of your choice).
+  This is required for the next steps.
+- ./setup.sh
+- npm test
+- exit the browser started
+
+Make your patches and test them in the usual fashion, and create a pull
+request. The pull request will run Travis to verify that your patch works
+for all the standard browser combos.
+
 ## Prior Art
 
 None of this would have been possible without the docs and code listed below:
