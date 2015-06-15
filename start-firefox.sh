@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 BVER=${BVER-stable}
-FIREFOX_COMMAND=~/bin/firefox-$BVER
+FIREFOX_COMMAND=./browser/bin/firefox-$BVER
 FIREFOX_HOME=$HOME/.mozilla/firefox
 
 # determine the script path

@@ -4,3 +4,4 @@ node_modules
 *.tar.bz2
 *.deb
 browser-tmp/
+browsers/
