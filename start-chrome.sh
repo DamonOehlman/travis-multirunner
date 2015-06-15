@@ -3,7 +3,7 @@ BVER=${BVER-stable}
 DEBUG_OPTS="--enable-logging --v=1 --vmodule=*third_party/libjingle/*=3,*=0"
 EXTRA_OPTS="--no-sandbox --disable-setuid-sandbox --allow-sandbox-debugging"
 UUID=$(cat /proc/sys/kernel/random/uuid)
-BROWSER_COMMAND=./browser/bin/chrome-$BVER
+BROWSER_COMMAND=./browsers/bin/chrome-$BVER
 SCRIPTPATH=$(dirname "$(readlink -f $0)")
 
 #  --log-level=3 \
