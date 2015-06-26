@@ -21,4 +21,5 @@ $BROWSER_COMMAND --disable-setuid-sandbox \
   --use-fake-device-for-media-stream \
   --use-fake-ui-for-media-stream \
   --allow-file-access-from-files \
+  --no-default-browser-check \
   --no-first-run $@
