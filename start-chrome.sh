@@ -20,4 +20,5 @@ $BROWSER_COMMAND --disable-setuid-sandbox \
   --user-data-dir=$SCRIPTPATH/profiles/$(UUID)/ \
   --use-fake-device-for-media-stream \
   --use-fake-ui-for-media-stream \
+  --allow-file-access-from-files \
   --no-first-run $@
