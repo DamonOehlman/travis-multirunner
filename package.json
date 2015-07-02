@@ -22,7 +22,7 @@
   "testling": {
     "files": "test/all.js"
   },
-  "version": "2.4.0",
+  "version": "2.5.0",
   "dependencies": {
     "djo-shell": "^1.0.0",
     "formatter": "^0.4.1",
