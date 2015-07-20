@@ -13,6 +13,7 @@ user_pref("browser.cache.disk.smart_size.enabled", false);
 user_pref("browser.cache.disk.smart_size.first_run", false);
 user_pref("browser.sessionstore.resume_from_crash", false);
 user_pref("browser.startup.page", 0);
+user_pref("media.navigator.streams.fake", true);
 // user_pref("media.navigator.permission.disabled", true);
 // user_pref("device.storage.enabled", true);
 // user_pref("devtools.debugger.remote-enabled", true);
