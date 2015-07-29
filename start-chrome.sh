@@ -16,7 +16,7 @@ BROWSER_COMMAND=${LOCATION:=./browsers/bin/chrome-$BVER}
 #  --log-level=3 \
 #  --use-fake-device-for-media-stream \
 #  --use-fake-ui-for-media-stream \
-if [ -z "$BROWSER_COMMAND" ]; then
+if [ ! -e "$BROWSER_COMMAND" ]; then
   echo "could not find chrome executable: $BROWSER_COMMAND\n";
   exit 1;
 fi
