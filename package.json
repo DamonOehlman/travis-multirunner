@@ -2,6 +2,7 @@
   "name": "travis-multirunner",
   "bin": {
     "travis-sync": "./bin/travis-sync",
+    "start": "./start.sh",
     "start-chrome": "./start-chrome.sh",
     "start-firefox": "./start-firefox.sh"
   },
