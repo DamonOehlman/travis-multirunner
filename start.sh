@@ -1,12 +1,12 @@
 # !/usr/bin/env bash
+PARAMS=$@
 launch() {
 	LAUNCHCMD="start-$1"
 	hash "$LAUNCHCMD" &> /dev/null
 	if [ $? -eq 1 ]; then
 		LAUNCHCMD="./start-$1.sh"
 	fi
-	echo $LAUNCHCMD
-	. $LAUNCHCMD
+	. $LAUNCHCMD $PARAMS
 }
 
 if [ -z $BROWSER ]; then
