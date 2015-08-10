@@ -1,13 +1,9 @@
 # !/usr/bin/env bash
-PARAMS=$@
-launch() {
-	LAUNCHCMD="start-$1"
-	hash "$LAUNCHCMD" &> /dev/null
-	if [ $? -eq 1 ]; then
-		LAUNCHCMD="./start-$1.sh"
-	fi
-	. $LAUNCHCMD $PARAMS
-}
+echo "Starting Travis CI multiple browser runner"
+echo "-----------"
+echo "Parameters:"
+echo "$@"
+echo "-----------"
 
 if [ -z $BROWSER ]; then
 	echo "No BROWSER variable specified, defaulting to locally installed Chrome"
@@ -16,7 +12,24 @@ if [ -z $BROWSER ]; then
 		darwin*) LOCATION="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";;
 		linux*) ;;
 	esac
-	launch chrome
+	TARGET="chrome"
 else
-	launch $BROWSER
+	TARGET=$BROWSER
 fi
+
+# Execute the appropriate script
+LAUNCHCMD="start-$TARGET"
+# Check if the launch command is accessible
+hash "$LAUNCHCMD" 2>/dev/null
+if [ $? -eq 1 ]; then
+	LAUNCHCMD="./start-$TARGET.sh"
+fi
+# Exit if we can't find the launch command
+hash "$LAUNCHCMD" 2>/dev/null
+if [ $? -eq 1 ]; then
+	echo "Could not find launch command! [${LAUNCHCMD}]"
+	exit 1;
+fi
+
+echo "Launching ${LAUNCHCMD}..."
+. "$LAUNCHCMD" "$@"
