@@ -9,7 +9,7 @@ case $OSTYPE in
 	;;
 	*) 
 		echo "Generating UUID for profile..."
-    UUID=$(cat /proc/sys/kernel/random/uuid)
+		UUID=$(cat /proc/sys/kernel/random/uuid)
 		SCRIPTPATH=$(dirname "$(readlink -f $0)")
 	;;
 esac
