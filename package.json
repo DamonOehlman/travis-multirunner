@@ -7,7 +7,7 @@
     "start-firefox": "./start-firefox.sh"
   },
   "scripts": {
-    "test": "testling -x ./start-$BROWSER.sh",
+    "test": "testling -x ./start.sh",
     "postinstall": "./bin/travis-sync"
   },
   "repository": {

@@ -8,7 +8,8 @@ case $OSTYPE in
 		SCRIPTPATH=$(dirname "$(greadlink -f $0)")
 	;;
 	*) 
-		UUID=$($(cat /proc/sys/kernel/random/uuid))
+		echo "Generating UUID for profile..."
+		UUID=$(cat /proc/sys/kernel/random/uuid)
 		SCRIPTPATH=$(dirname "$(readlink -f $0)")
 	;;
 esac
@@ -21,6 +22,7 @@ if [ ! -e "$BROWSER_COMMAND" ]; then
   exit 1;
 fi
 
+echo "Opening $@ in $BROWSER_COMMAND"
 "$BROWSER_COMMAND" --disable-setuid-sandbox \
   --console \
   --user-data-dir=$SCRIPTPATH/profiles/$UUID/ \
@@ -28,4 +30,4 @@ fi
   --use-fake-ui-for-media-stream \
   --allow-file-access-from-files \
   --no-default-browser-check \
-  --no-first-run $@
+  --no-first-run "$@"
