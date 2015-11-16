@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 
 # firefox base details
-MOZILLA_BUILDS=http://ftp.mozilla.org/pub/mozilla.org/firefox
-NIGHTLY_VERSION="39.0a1"
+
+MOZILLA_BUILDS=https://archive.mozilla.org/pub/firefox
+NIGHTLY_VERSION="45.0a1"
+
 
 function firefoxRelease {
-  echo $MOZILLA_BUILDS/releases/$1/linux-x86_64/en-US/firefox-$1.tar.bz2
+  echo https://download.mozilla.org/?product=firefox-$1&os=linux64&lang=en-US
 }
 
 # initialise the firefox versions
 declare -A FIREFOX_VERSIONS
-FIREFOX_VERSIONS[stable]=$(firefoxRelease 36.0)
-FIREFOX_VERSIONS[beta]=$(firefoxRelease 37.0b3)
-FIREFOX_VERSIONS[nightly]=$MOZILLA_BUILDS/nightly/latest-trunk/firefox-$NIGHTLY_VERSION.en-US.linux-x86_64.tar.bz2
+FIREFOX_VERSIONS[stable]=$(firefoxRelease latest)
+FIREFOX_VERSIONS[beta]=$(firefoxRelease latest-beta)
+FIREFOX_VERSIONS[nightly]=$MOZILLA_BUILDS/nightly/latest-mozilla-central/firefox-$NIGHTLY_VERSION.en-US.linux-x86_64.tar.bz2
 
 export FIREFOX_VERSIONS
