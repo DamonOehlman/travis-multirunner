@@ -5,7 +5,14 @@ FIREFOX_HOME=$HOME/.mozilla/firefox
 
 # determine the script path
 # ref: http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
-SCRIPTPATH=$(dirname "$(readlink -f $0)")
+case $OSTYPE in
+	darwin*)
+		SCRIPTPATH=$(dirname "$(greadlink -f $0)")
+	;;
+	*)
+		SCRIPTPATH=$(dirname "$(readlink -f $0)")
+	;;
+esac
 
 # set the prefs location
 PREFS=$SCRIPTPATH/firefox-prefs.js
