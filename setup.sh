@@ -9,7 +9,7 @@ SCRIPTPATH=`pwd -P`
 popd > /dev/null
 
 # get the browser version string
-TARGET_BROWSER=`$SCRIPTPATH/node_modules/.bin/browser-version $BROWSER $BVER`
+TARGET_BROWSER=`$SCRIPTPATH/node_modules/.bin/browser-sleuth $BROWSER $BVER`
 TARGET_URL=`echo $TARGET_BROWSER | cut -d'|' -f4`
 TARGET_VERSION=`echo $TARGET_BROWSER | cut -d'|' -f3`
 TARGET_PATH=$SCRIPTPATH/browsers/$BROWSER/$TARGET_VERSION

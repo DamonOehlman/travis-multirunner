@@ -5,7 +5,12 @@
 # The script expects to run in the script home dir, and uses
 # the subdir "browser-tmp" as a temporary directory.
 #
-FNAME=`echo $1 | sed -r "s/^.*\/([^\/]*)$/\1/"`
+
+case $OSTYPE in
+  darwin*) SED="sed -E s/^.*\/([^\/]*)$/\1/";;
+  linux*) SED="sed -r s/^.*\/([^\/]*)$/\1/";;
+esac
+FNAME=`echo $1 | ${SED}`
 
 # cleanup any old files (shouldn't happen on travis)
 rm -rf ./browser-tmp
