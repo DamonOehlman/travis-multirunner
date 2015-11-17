@@ -7,10 +7,10 @@
 #
 
 case $OSTYPE in
-  darwin*) SED=`sed -E "s/^.*\/([^\/]*)$/\1/"`;;
-  linux*) SED=`sed -r "s/^.*\/([^\/]*)$/\1/"`;;
+  darwin*) SED="sed -E s/^.*\/([^\/]*)$/\1/";;
+  linux*) SED="sed -r s/^.*\/([^\/]*)$/\1/";;
 esac
-FNAME=`echo $1 | $SED`
+FNAME=`echo $1 | ${SED}`
 
 # cleanup any old files (shouldn't happen on travis)
 rm -rf ./browser-tmp
