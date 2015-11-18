@@ -9,9 +9,14 @@ SCRIPTPATH=`pwd -P`
 popd > /dev/null
 
 # get the browser version string
-TARGET_BROWSER=`$SCRIPTPATH/node_modules/.bin/browser-version $BROWSER $BVER`
-TARGET_URL=`echo $TARGET_BROWSER | cut -d'|' -f4`
-TARGET_VERSION=`echo $TARGET_BROWSER | cut -d'|' -f3`
+case $OSTYPE in
+  darwin*) PLATFORM="mac";;
+  linux*) PLATFORM="linux";;
+esac
+
+TARGET_BROWSER=`curl -H 'Accept: text/csv' http://browsers.contralis.info/$PLATFORM/$BROWSER/$BVER`
+TARGET_URL=`echo $TARGET_BROWSER | cut -d',' -f7`
+TARGET_VERSION=`echo $TARGET_BROWSER | cut -d',' -f5`
 TARGET_PATH=$SCRIPTPATH/browsers/$BROWSER/$TARGET_VERSION
 
 # make the local bin directory and include it in the path
@@ -20,7 +25,7 @@ mkdir -p $BINPATH
 
 # install if required
 if [ ! -d $TARGET_PATH ]; then
-  echo "getting $BROWSER $TARGET_VERSION"
+  echo "getting $BROWSER $TARGET_VERSION from $TARGET_URL"
   source $SCRIPTPATH/install-$BROWSER.sh "$TARGET_URL" "$TARGET_PATH"
 fi
 
