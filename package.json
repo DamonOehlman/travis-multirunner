@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "testling -x ./start.sh",
-    "postinstall": "./bin/travis-sync"
+    "postinstall": "node bin/travis-sync"
   },
   "repository": {
     "type": "git",
