@@ -13,3 +13,4 @@ tar xvf $FNAME --directory ./browser-tmp
 # # make the target directory
 mkdir -p $2
 mv ./browser-tmp/firefox/* $2
+rm -rf ./browser-tmp
