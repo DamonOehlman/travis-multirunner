@@ -1,9 +1,11 @@
 sudo: false
 language: node_js
 node_js:
-- 7
+- "7"
 
 env:
+  - CXX=g++-4.8
+
   matrix:
     - BROWSER=chrome  BVER=stable
     - BROWSER=chrome  BVER=beta
