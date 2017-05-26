@@ -7,7 +7,7 @@
     "start-firefox": "./start-firefox.sh"
   },
   "scripts": {
-    "test": "testling -x ./start.sh",
+    "test": "browserify test/all.js | broth firefox | tap-spec",
     "postinstall": "node bin/travis-sync"
   },
   "repository": {
@@ -17,8 +17,8 @@
   "author": "Damon Oehlman <damon.oehlman@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "tape": "^3.0.1",
-    "testling": "^1.7.1"
+    "broth": "^2.3.0",
+    "tape": "^3.0.1"
   },
   "testling": {
     "files": "test/all.js"

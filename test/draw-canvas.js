@@ -1,6 +1,5 @@
-var test = require('tape');
-var canvas;
-var context;
+const test = require('tape');
+let canvas;
 
 test('create a canvas', function(t) {
   t.plan(1);
@@ -10,6 +9,6 @@ test('create a canvas', function(t) {
 
 test('get the rendering context', function(t) {
   t.plan(1);
-  t.ok(context = canvas.getContext('2d'));
+  t.ok(canvas.getContext('2d'));
 });
 
