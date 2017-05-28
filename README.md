@@ -5,7 +5,6 @@ This is a set of scripts designed to help you get up and running multibrowser te
 [![NPM](https://nodei.co/npm/travis-multirunner.png)](https://nodei.co/npm/travis-multirunner/)
 
 [![Build Status](https://travis-ci.org/DamonOehlman/travis-multirunner.svg?branch=master)](https://travis-ci.org/DamonOehlman/travis-multirunner)
-
 [![bitHound Overall Score](https://www.bithound.io/github/DamonOehlman/travis-multirunner/badges/score.svg)](https://www.bithound.io/github/DamonOehlman/travis-multirunner)
 
 ## Usage
