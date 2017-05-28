@@ -1,9 +1,12 @@
 sudo: false
 language: node_js
 node_js:
-- 0.10
+- "7"
 
 env:
+  global:
+    - CXX=g++-4.8
+
   matrix:
     - BROWSER=chrome  BVER=stable
     - BROWSER=chrome  BVER=beta
@@ -30,3 +33,10 @@ after_failure:
 notifications:
   email:
   - damon.oehlman@gmail.com
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
