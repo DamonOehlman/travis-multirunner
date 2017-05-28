@@ -7,7 +7,7 @@
     "start-firefox": "./start-firefox.sh"
   },
   "scripts": {
-    "test": "browserify test/all.js | broth start | tap-spec",
+    "test": "browserify test/all.js | broth ./start.sh | tap-spec",
     "postinstall": "node bin/travis-sync"
   },
   "repository": {
