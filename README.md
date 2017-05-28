@@ -6,6 +6,8 @@ This is a set of scripts designed to help you get up and running multibrowser te
 
 [![Build Status](https://travis-ci.org/DamonOehlman/travis-multirunner.svg?branch=master)](https://travis-ci.org/DamonOehlman/travis-multirunner)
 
+[![bitHound Overall Score](https://www.bithound.io/github/DamonOehlman/travis-multirunner/badges/score.svg)](https://www.bithound.io/github/DamonOehlman/travis-multirunner)
+
 ## Usage
 
 Using `travis-multirunner` has never been easier, simply install using:
@@ -45,7 +47,7 @@ For use with [`broth`](https://github.com/DamonOehlman/broth):
 - Add the following command to your npm `test` script:
 
   ```
-  browserify test/all.js | broth start-$BROWSER | tap-spec
+  browserify test/all.js | broth ./start.sh | tap-spec
   ```
 
 ### Use with smokestack
