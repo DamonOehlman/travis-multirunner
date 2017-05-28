@@ -45,7 +45,7 @@ For use with [`broth`](https://github.com/DamonOehlman/broth):
 - Add the following command to your npm `test` script:
 
   ```
-  browserify test/all.js | broth start-$BROWSER | tap-spec
+  browserify test/all.js | broth ./start.sh | tap-spec
   ```
 
 ### Use with smokestack
