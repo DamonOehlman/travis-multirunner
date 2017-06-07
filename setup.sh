@@ -2,7 +2,7 @@
 set -x
 set -e
 
-if [ $BROWSER == "MicrosoftEdge" ]; then
+if [ $BROWSER == "MicrosoftEdge" -o $BROWSER == "safari" ]; then
   exit 0
 fi
 # determine the script path
