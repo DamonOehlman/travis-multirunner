@@ -53,19 +53,6 @@ For use with [`broth`](https://github.com/DamonOehlman/broth):
 
 Use with [`smokestack`](https://github.com/hughsk/smokestack) has not yet been investigated...
 
-### Using Safari
-
-There are some extra considerations when using Safari with WebRTC. Only Safari 11+ supports WebRTC which as of writing this is only available in Safari Technology Preview (unstable not stable). If you are using getUserMedia with Safari then you will need to serve your tests over https. To do this you will likely need to generate an SSL key and tell Safari to trust it. You can do that with:
-
-```
-# Generate an SSL key and certificate
-openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -subj '/CN=localhost' -nodes
-# Tell Safari to trust the certificate
-sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain cert.pem
-```
-
-Then use that key and cert with your server.
-
 ## Contributing
 
 If you want to patch travis-multirunner, here's what you have to do:
