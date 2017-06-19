@@ -18,7 +18,10 @@ case $OSTYPE in
 esac
 
 if [ $BROWSER == "safari" ] && [ $BVER == "unstable" ]; then
-  TARGET_URL="https://secure-appldnld.apple.com/STP/091-17755-20170613-810B2272-A1AF-4825-8E43-ADF9E09D0B20/SafariTechnologyPreview.dmg"
+  # This is quite dangerous, it is scraping the safari download website for the URL. If the format
+  # of the website changes then it won't work anymore. We should add safari to
+  # browsers.contralis.info instead
+  TARGET_URL=`curl https://developer.apple.com/safari/download/ | grep https://secure-appldnld.apple.com | grep "macOS 10.12" | cut -d'"' -f6`
   TARGET_VERSION="33"
 else
   TARGET_BROWSER=`curl -H 'Accept: text/csv' http://browsers.contralis.info/$PLATFORM/$BROWSER/$BVER`
