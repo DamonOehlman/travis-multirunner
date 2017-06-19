@@ -14,6 +14,8 @@ env:
     - BROWSER=firefox BVER=stable
     - BROWSER=firefox BVER=beta
     - BROWSER=firefox BVER=unstable
+    - BROWSER=firefox BVER=46.0.1
+    - BROWSER=chrome BVER=54.0.2840.71
 
 matrix:
   fast_finish: true

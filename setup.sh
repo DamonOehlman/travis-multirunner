@@ -17,9 +17,22 @@ case $OSTYPE in
   linux*) PLATFORM="linux";;
 esac
 
-TARGET_BROWSER=`curl -H 'Accept: text/csv' http://browsers.contralis.info/$PLATFORM/$BROWSER/$BVER`
-TARGET_URL=`echo $TARGET_BROWSER | cut -d',' -f7`
-TARGET_VERSION=`echo $TARGET_BROWSER | cut -d',' -f5`
+VERSION_REGEX="[0-9]+(\.[0-9]+)*"
+if [[ $BVER =~ $VERSION_REGEX ]] ; then
+ echo "BVER is a version number so going to install a specific version"
+ if [ $BROWSER == 'firefox' ] ; then
+   TARGET_URL="http://download.cdn.mozilla.net/pub/firefox/releases/$BVER/linux-x86_64/en-US/firefox-$BVER.tar.bz2"
+ elif [ $BROWSER == 'chrome' ] ; then
+   TARGET_URL="http://www.slimjetbrowser.com/chrome/lnx/chrome64_$BVER.deb"
+ else
+   echo "Installing specific versions only works for Chrome or Firefox"
+ fi
+ TARGET_VERSION=$BVER
+else
+  TARGET_BROWSER=`curl -H 'Accept: text/csv' http://browsers.contralis.info/$PLATFORM/$BROWSER/$BVER`
+  TARGET_URL=`echo $TARGET_BROWSER | cut -d',' -f7`
+  TARGET_VERSION=`echo $TARGET_BROWSER | cut -d',' -f5`
+fi
 TARGET_PATH=$SCRIPTPATH/browsers/$BROWSER/$TARGET_VERSION
 
 # make the local bin directory and include it in the path
