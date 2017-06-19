@@ -28,6 +28,10 @@ matrix:
     - os: osx
       sudo: required
       osx_image: xcode8.3
+      env: BROWSER=safari BVER=stable
+    - os: osx
+      sudo: required
+      osx_image: xcode8.3
       env: BROWSER=safari BVER=unstable
 
   fast_finish: true
