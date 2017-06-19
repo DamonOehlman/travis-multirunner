@@ -1,4 +1,3 @@
-sudo: false
 language: node_js
 node_js:
 - "7"
@@ -7,15 +6,30 @@ env:
   global:
     - CXX=g++-4.8
 
-  matrix:
-    - BROWSER=chrome  BVER=stable
-    - BROWSER=chrome  BVER=beta
-    - BROWSER=chrome  BVER=unstable
-    - BROWSER=firefox BVER=stable
-    - BROWSER=firefox BVER=beta
-    - BROWSER=firefox BVER=unstable
-
 matrix:
+  - os: linux
+    sudo: false
+    env: BROWSER=chrome  BVER=stable
+  - os: linux
+    sudo: false
+    env: BROWSER=chrome  BVER=beta
+  - os: linux
+    sudo: false
+    env: BROWSER=chrome  BVER=unstable
+  - os: linux
+    sudo: false
+    env: BROWSER=firefox BVER=stable
+  - os: linux
+    sudo: false
+    env: BROWSER=firefox BVER=beta
+  - os: linux
+    sudo: false
+    env: BROWSER=firefox BVER=unstable
+  - os: osx
+    sudo: required
+    osx_image: xcode8.3
+    env: BROWSER=safari BVER=unstable
+
   fast_finish: true
 
   allow_failures:

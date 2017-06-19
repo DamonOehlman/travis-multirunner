@@ -22,11 +22,11 @@ Most of the work will be done for you!  A `.travis.yml` configuration file will 
 For use with [`testling`](https://github.com/substack/testling):
 
 - install required dev dependencies
-  
+
   ```
   npm install testling --save-dev
   ```
-  
+
 - Add the following command to your npm `test` script:
 
   ```
@@ -38,11 +38,11 @@ For use with [`testling`](https://github.com/substack/testling):
 For use with [`broth`](https://github.com/DamonOehlman/broth):
 
 - install required dev dependencies
-  
+
   ```
   npm install browserify broth tap-spec --save-dev
   ```
-  
+
 - Add the following command to your npm `test` script:
 
   ```
@@ -52,6 +52,19 @@ For use with [`broth`](https://github.com/DamonOehlman/broth):
 ### Use with smokestack
 
 Use with [`smokestack`](https://github.com/hughsk/smokestack) has not yet been investigated...
+
+### Using Safari
+
+There are some extra considerations when using Safari. If you are using WebRTC (specifically getUserMedia) with Safari then you will need to serve your tests over https. To do this you will likely need to generate an SSL key and tell Safari to trust it. You can do that with:
+
+```
+# Generate an SSL key and certificate
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -subj '/CN=localhost' -nodes
+# Tell Safari to trust the certificate
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain cert.pem
+```
+
+Then use that key and cert with your server.
 
 ## Contributing
 
