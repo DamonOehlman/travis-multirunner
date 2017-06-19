@@ -4,7 +4,8 @@
     "travis-sync": "./bin/travis-sync",
     "start": "./start.sh",
     "start-chrome": "./start-chrome.sh",
-    "start-firefox": "./start-firefox.sh"
+    "start-firefox": "./start-firefox.sh",
+    "start-safari": "./start-safari.sh"
   },
   "scripts": {
     "test": "browserify test/all.js | broth ./start.sh | tap-spec",
@@ -22,7 +23,7 @@
     "tap-spec": "^4.1.1",
     "tape": "^4.6.3"
   },
-  "version": "3.3.0",
+  "version": "4.0.0",
   "dependencies": {
     "djo-shell": "^1.0.0",
     "formatter": "^0.4.1",
