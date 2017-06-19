@@ -22,11 +22,11 @@ Most of the work will be done for you!  A `.travis.yml` configuration file will 
 For use with [`testling`](https://github.com/substack/testling):
 
 - install required dev dependencies
-  
+
   ```
   npm install testling --save-dev
   ```
-  
+
 - Add the following command to your npm `test` script:
 
   ```
@@ -38,11 +38,11 @@ For use with [`testling`](https://github.com/substack/testling):
 For use with [`broth`](https://github.com/DamonOehlman/broth):
 
 - install required dev dependencies
-  
+
   ```
   npm install browserify broth tap-spec --save-dev
   ```
-  
+
 - Add the following command to your npm `test` script:
 
   ```
