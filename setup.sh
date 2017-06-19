@@ -17,7 +17,18 @@ case $OSTYPE in
   linux*) PLATFORM="linux";;
 esac
 
-if [ $BROWSER == "safari" ] && [ $BVER == "unstable" ]; then
+VERSION_REGEX="[0-9]+(\.[0-9]+)*"
+if [[ $BVER =~ $VERSION_REGEX ]] ; then
+ echo "BVER is a version number so going to install a specific version"
+ if [ $BROWSER == 'firefox' ] ; then
+   TARGET_URL="http://download.cdn.mozilla.net/pub/firefox/releases/$BVER/linux-x86_64/en-US/firefox-$BVER.tar.bz2"
+ elif [ $BROWSER == 'chrome' ] ; then
+   TARGET_URL="http://www.slimjetbrowser.com/chrome/lnx/chrome64_$BVER.deb"
+ else
+   echo "Installing specific versions only works for Chrome or Firefox"
+ fi
+ TARGET_VERSION=$BVER
+elif [ $BROWSER == "safari" ] && [ $BVER == "unstable" ]; then
   # This is quite dangerous, it is scraping the safari download website for the URL. If the format
   # of the website changes then it won't work anymore. We should add safari to
   # browsers.contralis.info instead

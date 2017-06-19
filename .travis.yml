@@ -19,6 +19,9 @@ matrix:
       env: BROWSER=chrome  BVER=unstable
     - os: linux
       sudo: false
+      env: BROWSER=chrome BVER=54.0.2840.71
+    - os: linux
+      sudo: false
       env: BROWSER=firefox BVER=stable
     - os: linux
       sudo: false
@@ -26,6 +29,9 @@ matrix:
     - os: linux
       sudo: false
       env: BROWSER=firefox BVER=unstable
+    - os: linux
+      sudo: false
+      env: BROWSER=firefox BVER=46.0.1
     - os: osx
       sudo: required
       osx_image: xcode8.3
