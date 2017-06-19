@@ -2,7 +2,7 @@
 set -x
 set -e
 
-if [ $BROWSER == "MicrosoftEdge" -o $BROWSER == "safari" ]; then
+if [ $BROWSER == "MicrosoftEdge" ]; then
   exit 0
 fi
 # determine the script path
@@ -17,9 +17,17 @@ case $OSTYPE in
   linux*) PLATFORM="linux";;
 esac
 
-TARGET_BROWSER=`curl -H 'Accept: text/csv' http://browsers.contralis.info/$PLATFORM/$BROWSER/$BVER`
-TARGET_URL=`echo $TARGET_BROWSER | cut -d',' -f7`
-TARGET_VERSION=`echo $TARGET_BROWSER | cut -d',' -f5`
+if [ $BROWSER == "safari" ] && [ $BVER == "unstable" ]; then
+  # This is quite dangerous, it is scraping the safari download website for the URL. If the format
+  # of the website changes then it won't work anymore. We should add safari to
+  # browsers.contralis.info instead
+  TARGET_URL=`curl https://developer.apple.com/safari/download/ | grep https://secure-appldnld.apple.com | grep "macOS 10.12" | cut -d'"' -f6`
+  TARGET_VERSION="33"
+else
+  TARGET_BROWSER=`curl -H 'Accept: text/csv' http://browsers.contralis.info/$PLATFORM/$BROWSER/$BVER`
+  TARGET_URL=`echo $TARGET_BROWSER | cut -d',' -f7`
+  TARGET_VERSION=`echo $TARGET_BROWSER | cut -d',' -f5`
+fi
 TARGET_PATH=$SCRIPTPATH/browsers/$BROWSER/$TARGET_VERSION
 
 # make the local bin directory and include it in the path
@@ -41,5 +49,12 @@ case $BROWSER in
   firefox)
     ln -sf $TARGET_PATH/firefox $BINPATH/firefox-$BVER
     $BINPATH/firefox-$BVER --version
+    ;;
+  safari)
+    if [ $BVER == "unstable" ]; then
+      mdls -name kMDItemVersion /Applications/Safari\ Technology\ Preview.app
+    else
+      mdls -name kMDItemVersion /Applications/Safari.app
+    fi
     ;;
 esac

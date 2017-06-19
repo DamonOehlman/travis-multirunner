@@ -3,11 +3,11 @@ BVER=${BVER-stable}
 DEBUG_OPTS="--enable-logging --v=1 --vmodule=*third_party/libjingle/*=3,*=0"
 EXTRA_OPTS="--no-sandbox --disable-setuid-sandbox --allow-sandbox-debugging"
 case $OSTYPE in
-	darwin*) 
+	darwin*)
 		UUID=$(/usr/bin/uuidgen)
-		SCRIPTPATH=$(dirname "$(greadlink -f $0)")
+		SCRIPTPATH=$(dirname "$(readlink -f $0)")
 	;;
-	*) 
+	*)
 		echo "Generating UUID for profile..."
 		UUID=$(cat /proc/sys/kernel/random/uuid)
 		SCRIPTPATH=$(dirname "$(readlink -f $0)")
