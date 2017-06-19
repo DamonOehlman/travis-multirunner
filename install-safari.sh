@@ -6,6 +6,7 @@ if [ $BVER == "unstable" ] && [ ! -f "/Applications/Safari Technology Preview.ap
   hdiutil attach SDP.dmg
   sudo installer -pkg /Volumes/Safari\ Technology\ Preview/Safari\ Technology\ Preview.pkg -target /
 fi
+# Safari stable is already installed, no need to do anything
 
 # If we're running on Travis
 if [ ! -z $TRAVIS ]; then
