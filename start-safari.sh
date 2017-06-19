@@ -7,7 +7,7 @@ else
 fi
 
 # Tell Safari not to restore the browser windows when it is relaunched
-defaults write com.apple.safari ApplePersistenceIgnoreState YES
+defaults write com.apple.$SAFARI_SHORT_NAME ApplePersistenceIgnoreState YES
 
 # Turn on fake devices
 defaults write com.apple.$SAFARI_SHORT_NAME WebKitMockCaptureDevicesEnabled 1
