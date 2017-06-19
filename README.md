@@ -55,7 +55,7 @@ Use with [`smokestack`](https://github.com/hughsk/smokestack) has not yet been i
 
 ### Using Safari
 
-There are some extra considerations when using Safari. If you are using WebRTC (specifically getUserMedia) with Safari then you will need to serve your tests over https. To do this you will likely need to generate an SSL key and tell Safari to trust it. You can do that with:
+There are some extra considerations when using Safari with WebRTC. Only Safari 11+ supports WebRTC which as of writing this is only available in Safari Technology Preview (unstable not stable). If you are using getUserMedia with Safari then you will need to serve your tests over https. To do this you will likely need to generate an SSL key and tell Safari to trust it. You can do that with:
 
 ```
 # Generate an SSL key and certificate

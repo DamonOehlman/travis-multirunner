@@ -22,6 +22,8 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 # Finally copy the `~/Library/SafariTechnologyPreview/UserMediaPermissions.plist` file into the
 # same directory on Travis.
 open -a "$SAFARI_NAME"
+sleep 1
+killall "$SAFARI_NAME"
 cp ./UserMediaPermissions.plist ~/Library/SafariTechnologyPreview/
 
 open -a "$SAFARI_NAME" $@
