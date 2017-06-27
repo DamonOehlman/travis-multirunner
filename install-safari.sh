@@ -25,6 +25,11 @@ else
   SAFARI_SHORT_NAME="Safari"
 fi
 
+# Launch and kill Safari so that we can start to override the settings
+open -a "$SAFARI_NAME"
+sleep 2
+killall "$SAFARI_NAME"
+
 # Tell Safari not to restore the browser windows when it is relaunched
 defaults write com.apple.$SAFARI_SHORT_NAME ApplePersistenceIgnoreState YES
 
@@ -41,6 +46,12 @@ if [[ $MAC_OS_VERSION =~ ^10\.1[3-9]\..+ ]]; then
   sudo safaridriver --enable
 fi
 
+# determine the script path
+# ref: http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
+pushd `dirname $0` > /dev/null
+SCRIPTPATH=`pwd -P`
+popd > /dev/null
+
 # Allow device access
 # This UserMediaPermissions.plist file allows 127.0.0.1 and localhost. To add other domains
 # you need to run Safari Technology Preview on your system, visit the domain you want to allow
@@ -48,13 +59,4 @@ fi
 # then click on the red camera in the URL bar and choose "Always Allow".
 # Finally copy the `~/Library/SafariTechnologyPreview/UserMediaPermissions.plist` file into the
 # same directory on Travis.
-open -a "$SAFARI_NAME"
-sleep 2
-killall "$SAFARI_NAME"
-
-# determine the script path
-# ref: http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
-pushd `dirname $0` > /dev/null
-SCRIPTPATH=`pwd -P`
-popd > /dev/null
 cp $SCRIPTPATH/UserMediaPermissions.plist ~/Library/$SAFARI_SHORT_NAME/
