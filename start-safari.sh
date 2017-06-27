@@ -16,6 +16,9 @@ defaults write com.apple.$SAFARI_SHORT_NAME com.apple.Safari.ContentPageGroupIde
 # Allow insecure domains
 defaults write com.apple.$SAFARI_SHORT_NAME WebKitMediaCaptureRequiresSecureConnection 0
 
+# Turn on Allow Remote Automation. This only works in Mac OS 10.13+
+sudo safaridriver --enable
+
 # Allow device access
 # This UserMediaPermissions.plist file allows 127.0.0.1 and localhost. To add other domains
 # you need to run Safari Technology Preview on your system, visit the domain you want to allow
