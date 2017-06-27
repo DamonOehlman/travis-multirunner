@@ -51,4 +51,10 @@ fi
 open -a "$SAFARI_NAME"
 sleep 2
 killall "$SAFARI_NAME"
-cp ./UserMediaPermissions.plist ~/Library/$SAFARI_SHORT_NAME/
+
+# determine the script path
+# ref: http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
+pushd `dirname $0` > /dev/null
+SCRIPTPATH=`pwd -P`
+popd > /dev/null
+cp $SCRIPTPATH/UserMediaPermissions.plist ~/Library/$SAFARI_SHORT_NAME/
