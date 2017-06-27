@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Install Safari or Safari Technology Preview
+# Arguments: $1=target URL
+
 # Download and install Safari Tech Preview
 if [ $BVER == "unstable" ] && [ ! -f "/Applications/Safari Technology Preview.app/Contents/MacOS/Safari Technology Preview" ]; then
   curl -L $1 > SDP.dmg
@@ -39,6 +42,7 @@ defaults write com.apple.$SAFARI_SHORT_NAME com.apple.Safari.ContentPageGroupIde
 
 # Allow insecure domains
 defaults write com.apple.$SAFARI_SHORT_NAME WebKitMediaCaptureRequiresSecureConnection 0
+defaults write com.apple.$SAFARI_SHORT_NAME com.apple.Safari.ContentPageGroupIdentifier.WebKit2MediaCaptureRequiresSecureConnection 0
 
 # Turn on Allow Remote Automation. This only works in Mac OS 10.13+
 MAC_OS_VERSION=`defaults read loginwindow SystemVersionStampAsString`
