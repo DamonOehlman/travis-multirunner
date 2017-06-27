@@ -36,7 +36,10 @@ defaults write com.apple.$SAFARI_SHORT_NAME com.apple.Safari.ContentPageGroupIde
 defaults write com.apple.$SAFARI_SHORT_NAME WebKitMediaCaptureRequiresSecureConnection 0
 
 # Turn on Allow Remote Automation. This only works in Mac OS 10.13+
-sudo safaridriver --enable
+MAC_OS_VERSION=`defaults read loginwindow SystemVersionStampAsString`
+if [[ $MAC_OS_VERSION =~ ^10\.1[3-9]\..+ ]]; then
+  sudo safaridriver --enable
+fi
 
 # Allow device access
 # This UserMediaPermissions.plist file allows 127.0.0.1 and localhost. To add other domains
