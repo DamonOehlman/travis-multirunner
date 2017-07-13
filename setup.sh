@@ -32,8 +32,8 @@ elif [ $BROWSER == "safari" ] && [ $BVER == "unstable" ]; then
   # This is quite dangerous, it is scraping the safari download website for the URL. If the format
   # of the website changes then it won't work anymore. We should add safari to
   # browsers.contralis.info instead
-  TARGET_URL=`curl https://developer.apple.com/safari/download/ | grep https://secure-appldnld.apple.com | grep "macOS 10.12" | cut -d'"' -f6`
-  TARGET_VERSION="33"
+  TARGET_URL=`curl https://developer.apple.com/safari/download/ | sed -nE 's/.*href="(.*\.dmg)">.*macOS 10.12.*/\1/p'`
+  TARGET_VERSION=`curl https://developer.apple.com/safari/download/ | sed -nE 's/.*>([0-9]+)<\/p>.*$/\1/p'`
 else
   TARGET_BROWSER=`curl -H 'Accept: text/csv' http://browsers.contralis.info/$PLATFORM/$BROWSER/$BVER`
   TARGET_URL=`echo $TARGET_BROWSER | cut -d',' -f7`
