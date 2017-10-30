@@ -7,7 +7,7 @@ rm -rf ./browser-tmp
 mkdir -p ./browser-tmp
 
 # get the files
-wget $1
+wget -q $1
 tar xvf $FNAME --directory ./browser-tmp
 
 # # make the target directory
