@@ -12,7 +12,7 @@ rm -rf ./browser-tmp
 mkdir ./browser-tmp
 
 # get the files
-(cd ./browser-tmp; wget $1)
+(cd ./browser-tmp; wget -q $1)
 dpkg -X ./browser-tmp/$FNAME ./browser-tmp
 
 # remove the broken link
