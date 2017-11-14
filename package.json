@@ -23,7 +23,7 @@
     "tap-spec": "^4.1.1",
     "tape": "^4.6.3"
   },
-  "version": "4.2.5",
+  "version": "4.3.0",
   "dependencies": {
     "djo-shell": "^1.0.0",
     "formatter": "^0.4.1",
