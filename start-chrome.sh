@@ -30,4 +30,5 @@ echo "Opening $@ in $BROWSER_COMMAND"
   --use-fake-ui-for-media-stream \
   --allow-file-access-from-files \
   --no-default-browser-check \
+  --no-sandbox \
   --no-first-run "$@"
