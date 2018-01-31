@@ -5,6 +5,15 @@ set -e
 if [ $BROWSER == "MicrosoftEdge" ]; then
   exit 0
 fi
+if [ $BROWSER == "Electron" ]; then
+  exit 0
+fi
+if [ $BROWSER == "NodeWebkit" ]; then
+  exit 0
+fi
+if [ $BVER == "android" ]; then
+  exit 0
+fi
 if [ -z $BVER ]; then
   exit 0
 fi
