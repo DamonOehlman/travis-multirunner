@@ -45,8 +45,8 @@ defaults write com.apple.$SAFARI_SHORT_NAME WebKitMediaCaptureRequiresSecureConn
 defaults write com.apple.$SAFARI_SHORT_NAME com.apple.Safari.ContentPageGroupIdentifier.WebKit2MediaCaptureRequiresSecureConnection 0
 
 # Turn off popup blocking
-defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool true
-defaults write com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool true
+defaults write com.apple.$SAFARI_SHORT_NAME WebKitJavaScriptCanOpenWindowsAutomatically -bool true
+defaults write com.apple.$SAFARI_SHORT_NAME com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool true
 
 # Turn on Allow Remote Automation. This only works in Mac OS 10.12.6+
 sudo safaridriver --enable
