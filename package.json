@@ -25,6 +25,7 @@
   },
   "version": "4.4.1",
   "dependencies": {
+    "browser-sleuth": "^0.3.0",
     "djo-shell": "^1.0.0",
     "formatter": "^0.4.1",
     "normalize-package-data": "^2.3.8"
