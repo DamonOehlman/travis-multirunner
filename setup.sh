@@ -47,7 +47,7 @@ elif [ $BROWSER == "safari" ] && [ $BVER == "unstable" ]; then
   TARGET_URL=`curl https://developer.apple.com/safari/download/ | sed -nE 's/.*href="(.*\.dmg)">.*macOS 10.12.*/\1/p'`
   TARGET_VERSION=`curl https://developer.apple.com/safari/download/ | sed -nE 's/.*>([0-9]+)<\/p>.*$/\1/p'`
 else
-  TARGET_BROWSER=`curl -H 'Accept: text/csv' http://browsers.contralis.info/$PLATFORM/$BROWSER/$BVER`
+  TARGET_BROWSER=`curl -H 'Accept: text/csv' https://browser-version-api.herokuapp.com/$PLATFORM/$BROWSER/$BVER`
   TARGET_URL=`echo $TARGET_BROWSER | cut -d',' -f7`
   TARGET_VERSION=`echo $TARGET_BROWSER | cut -d',' -f5`
 fi
