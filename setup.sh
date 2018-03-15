@@ -2,19 +2,19 @@
 set -x
 set -e
 
-if [ $BROWSER == "MicrosoftEdge" ]; then
+if [ "$BROWSER" == "MicrosoftEdge" ]; then
   exit 0
 fi
-if [ $BROWSER == "Electron" ]; then
+if [ "$BROWSER" == "Electron" ]; then
   exit 0
 fi
-if [ $BROWSER == "NodeWebkit" ]; then
+if [ "$BROWSER" == "NodeWebkit" ]; then
   exit 0
 fi
-if [ $BVER == "android" ]; then
+if [ "$BVER" == "android" ]; then
   exit 0
 fi
-if [ -z $BVER ]; then
+if [ -z "$BVER" ]; then
   exit 0
 fi
 # determine the script path
@@ -30,17 +30,17 @@ case $OSTYPE in
 esac
 
 VERSION_REGEX="[0-9]+(\.[0-9]+)*"
-if [[ $BVER =~ $VERSION_REGEX ]] ; then
+if [[ "$BVER" =~ $VERSION_REGEX ]] ; then
  echo "BVER is a version number so going to install a specific version"
- if [ $BROWSER == 'firefox' ] ; then
+ if [ "$BROWSER" == "firefox" ] ; then
    TARGET_URL="http://download.cdn.mozilla.net/pub/firefox/releases/$BVER/linux-x86_64/en-US/firefox-$BVER.tar.bz2"
- elif [ $BROWSER == 'chrome' ] ; then
+ elif [ "$BROWSER" == "chrome" ] ; then
    TARGET_URL="http://www.slimjet.com/chrome/lnx/chrome64_$BVER.deb"
  else
    echo "Installing specific versions only works for Chrome or Firefox"
  fi
  TARGET_VERSION=$BVER
-elif [ $BROWSER == "safari" ] && [ $BVER == "unstable" ]; then
+elif [ "$BROWSER" == "safari" ] && [ "$BVER" == "unstable" ]; then
   # This is quite dangerous, it is scraping the safari download website for the URL. If the format
   # of the website changes then it won't work anymore. We should add safari to
   # browsers.contralis.info instead
@@ -58,7 +58,7 @@ BINPATH=./browsers/bin
 mkdir -p $BINPATH
 
 # install if required
-if [ ! -d $TARGET_PATH ]; then
+if [ ! -d "$TARGET_PATH" ]; then
   echo "getting $BROWSER $TARGET_VERSION from $TARGET_URL"
   source $SCRIPTPATH/install-$BROWSER.sh "$TARGET_URL" "$TARGET_PATH"
 fi
@@ -66,11 +66,11 @@ fi
 # create the symbolic links
 case $BROWSER in
   chrome)
-    ln -sf $TARGET_PATH/chrome $BINPATH/chrome-$BVER
+    ln -sf "$TARGET_PATH/chrome" "$BINPATH/chrome-$BVER"
     $BINPATH/chrome-$BVER --version
     ;;
   firefox)
-    ln -sf $TARGET_PATH/firefox $BINPATH/firefox-$BVER
+    ln -sf "$TARGET_PATH/firefox" "$BINPATH/firefox-$BVER"
     $BINPATH/firefox-$BVER --version
     ;;
   safari)
