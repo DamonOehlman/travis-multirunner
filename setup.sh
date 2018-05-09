@@ -35,7 +35,7 @@ if [[ $BVER =~ $VERSION_REGEX ]] ; then
  if [ $BROWSER == 'firefox' ] ; then
    TARGET_URL="http://download.cdn.mozilla.net/pub/firefox/releases/$BVER/linux-x86_64/en-US/firefox-$BVER.tar.bz2"
  elif [ $BROWSER == 'chrome' ] ; then
-   TARGET_URL="http://www.slimjetbrowser.com/chrome/lnx/chrome64_$BVER.deb"
+   TARGET_URL="http://www.slimjet.com/chrome/lnx/chrome64_$BVER.deb"
  else
    echo "Installing specific versions only works for Chrome or Firefox"
  fi
