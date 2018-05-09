@@ -44,11 +44,12 @@ defaults write com.apple.$SAFARI_SHORT_NAME com.apple.Safari.ContentPageGroupIde
 defaults write com.apple.$SAFARI_SHORT_NAME WebKitMediaCaptureRequiresSecureConnection 0
 defaults write com.apple.$SAFARI_SHORT_NAME com.apple.Safari.ContentPageGroupIdentifier.WebKit2MediaCaptureRequiresSecureConnection 0
 
-# Turn on Allow Remote Automation. This only works in Mac OS 10.13+
-MAC_OS_VERSION=`defaults read loginwindow SystemVersionStampAsString`
-if [[ $MAC_OS_VERSION =~ ^10\.1[3-9]\..+ ]]; then
-  sudo safaridriver --enable
-fi
+# Turn off popup blocking
+defaults write com.apple.$SAFARI_SHORT_NAME WebKitJavaScriptCanOpenWindowsAutomatically -bool true
+defaults write com.apple.$SAFARI_SHORT_NAME com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool true
+
+# Turn on Allow Remote Automation. This only works in Mac OS 10.12.6+
+sudo safaridriver --enable
 
 # determine the script path
 # ref: http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
