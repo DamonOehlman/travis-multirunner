@@ -43,13 +43,14 @@ if [[ $BVER =~ $VERSION_REGEX ]] ; then
 elif [ $BROWSER == "safari" ] && [ $BVER == "unstable" ]; then
   # This is quite dangerous, it is scraping the safari download website for the URL. If the format
   # of the website changes then it won't work anymore. We should add safari to
-  # browsers.contralis.info instead
+  # browsers.contralis.info / browser-sleuth instead
   TARGET_URL=`curl https://developer.apple.com/safari/download/ | sed -nE 's/.*href="(.*\.dmg)">.*macOS 10.12.*/\1/p'`
   TARGET_VERSION=`curl https://developer.apple.com/safari/download/ | sed -nE 's/.*>([0-9]+)<\/p>.*$/\1/p'`
 else
-  TARGET_BROWSER=`curl -H 'Accept: text/csv' https://browser-version-api.herokuapp.com/$PLATFORM/$BROWSER/$BVER`
-  TARGET_URL=`echo $TARGET_BROWSER | cut -d',' -f7`
-  TARGET_VERSION=`echo $TARGET_BROWSER | cut -d',' -f5`
+  SLEUTHBIN=`node -e 'console.log(require.resolve("browser-sleuth/sleuth.sh"))'`
+  TARGET_BROWSER=`$SLEUTHBIN $BROWSER $BVER $PLATFORM`
+  TARGET_URL=`echo $TARGET_BROWSER | cut -d'|' -f4`
+  TARGET_VERSION=`echo $TARGET_BROWSER | cut -d'|' -f3`
 fi
 TARGET_PATH=$SCRIPTPATH/browsers/$BROWSER/$TARGET_VERSION
 
