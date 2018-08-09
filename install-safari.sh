@@ -15,9 +15,11 @@ fi
 if [ ! -z $TRAVIS ]; then
   # Download and install Soundflower to get audio output devices otherwise we get crashes
   # https://bugs.webkit.org/show_bug.cgi?id=172794
+  # From Mac OS High Sierra, Soundflower installer is blocked by default security, so we need to disable it
+  sudo spctl --master-disable
   curl -L https://github.com/mattingalls/Soundflower/releases/download/2.0b2/Soundflower-2.0b2.dmg > Soundflower.dmg
   hdiutil attach Soundflower.dmg
-  sudo installer -pkg /Volumes/Soundflower-2.0b2/Soundflower.pkg -target /
+  sudo installer -allowUntrusted -pkg /Volumes/Soundflower-2.0b2/Soundflower.pkg -target /
 fi
 
 if [ $BVER == "unstable" ]; then
