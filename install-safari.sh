@@ -12,7 +12,7 @@ fi
 # Safari stable is already installed, no need to do anything
 
 # If we're running on Travis
-if [ ! -z $TRAVIS ]; then
+if [ ! -z $TRAVIS ] && [ $BVER == "stable" ]; then
   # Download and install Soundflower to get audio output devices otherwise we get crashes
   # https://bugs.webkit.org/show_bug.cgi?id=172794
   curl -L https://github.com/mattingalls/Soundflower/releases/download/2.0b2/Soundflower-2.0b2.dmg > Soundflower.dmg
