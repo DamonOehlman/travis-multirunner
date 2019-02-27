@@ -30,6 +30,7 @@ defaults write com.apple.$SAFARI_SHORT_NAME ApplePersistenceIgnoreState YES
 # Turn on fake devices
 defaults write com.apple.$SAFARI_SHORT_NAME WebKitMockCaptureDevicesEnabled 1
 defaults write com.apple.$SAFARI_SHORT_NAME com.apple.Safari.ContentPageGroupIdentifier.WebKit2MockCaptureDevicesEnabled 1
+defaults write com.apple.$SAFARI_SHORT_NAME WebKitPreferences.mockCaptureDevicesEnabled 1
 
 # Allow insecure domains
 defaults write com.apple.$SAFARI_SHORT_NAME WebKitMediaCaptureRequiresSecureConnection 0
