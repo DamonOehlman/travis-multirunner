@@ -44,7 +44,7 @@ elif [ $BROWSER == "safari" ] && [ $BVER == "unstable" ]; then
   # This is quite dangerous, it is scraping the safari download website for the URL. If the format
   # of the website changes then it won't work anymore. We should add safari to
   # browsers.contralis.info instead
-  TARGET_URL=`curl https://developer.apple.com/safari/download/ | sed -nE 's/.*href="(.*\.dmg)">.*macOS 10.13.*/\1/p'`
+  TARGET_URL=`curl https://developer.apple.com/safari/download/ | sed -nE 's/.*href="(.*\.dmg)">.*macOS 10.14.*/\1/p'`
   TARGET_VERSION=`curl https://developer.apple.com/safari/download/ | sed -nE 's/.*>([0-9]+)<\/p>.*$/\1/p'`
 else
   TARGET_BROWSER=`curl -H 'Accept: text/csv' https://browser-version-api.herokuapp.com/$PLATFORM/$BROWSER/$BVER`
