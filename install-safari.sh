@@ -12,7 +12,7 @@ fi
 # Safari stable is already installed, no need to do anything
 
 # If we're running on Travis
-if [ ! -z $TRAVIS ]; then
+if [ ! -z $TRAVIS ] && [ $BVER == "stable" ]; then
   # Download and install Soundflower to get audio output devices otherwise we get crashes
   # https://bugs.webkit.org/show_bug.cgi?id=172794
   curl -L https://github.com/mattingalls/Soundflower/releases/download/2.0b2/Soundflower-2.0b2.dmg > Soundflower.dmg
@@ -39,6 +39,7 @@ defaults write com.apple.$SAFARI_SHORT_NAME ApplePersistenceIgnoreState YES
 # Turn on fake devices
 defaults write com.apple.$SAFARI_SHORT_NAME WebKitMockCaptureDevicesEnabled 1
 defaults write com.apple.$SAFARI_SHORT_NAME com.apple.Safari.ContentPageGroupIdentifier.WebKit2MockCaptureDevicesEnabled 1
+defaults write com.apple.$SAFARI_SHORT_NAME WebKitPreferences.mockCaptureDevicesEnabled 1
 
 # Allow insecure domains
 defaults write com.apple.$SAFARI_SHORT_NAME WebKitMediaCaptureRequiresSecureConnection 0

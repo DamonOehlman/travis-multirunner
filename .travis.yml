@@ -35,11 +35,11 @@ matrix:
       env: BROWSER=firefox BVER=46.0.1
     - os: osx
       sudo: required
-      osx_image: xcode9
+      osx_image: xcode9.2
       env: BROWSER=safari BVER=stable
     - os: osx
       sudo: required
-      osx_image: xcode9
+      osx_image: xcode11.2
       env: BROWSER=safari BVER=unstable
 
   fast_finish: true
