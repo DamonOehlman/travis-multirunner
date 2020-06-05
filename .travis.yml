@@ -10,15 +10,12 @@ env:
 matrix:
   include:
     - os: linux
-      # dist: bionic
       sudo: required
       env: BROWSER=chrome  BVER=stable
     - os: linux
-      # dist: bionic
       sudo: required
       env: BROWSER=chrome  BVER=beta
     - os: linux
-      # dist: bionic
       sudo: required
       env: BROWSER=chrome  BVER=unstable
     - os: linux
@@ -49,7 +46,6 @@ matrix:
 
   allow_failures:
     - os: linux
-      # dist: bionic
       sudo: required
       env: BROWSER=chrome  BVER=unstable
     - os: linux
