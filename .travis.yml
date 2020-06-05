@@ -11,15 +11,15 @@ matrix:
   include:
     - os: linux
       # dist: bionic
-      sudo: false
+      # sudo: false
       env: BROWSER=chrome  BVER=stable
     - os: linux
       # dist: bionic
-      sudo: false
+      # sudo: false
       env: BROWSER=chrome  BVER=beta
     - os: linux
       # dist: bionic
-      sudo: false
+      # sudo: false
       env: BROWSER=chrome  BVER=unstable
     - os: linux
       sudo: false
@@ -50,7 +50,7 @@ matrix:
   allow_failures:
     - os: linux
       # dist: bionic
-      sudo: false
+      # sudo: false
       env: BROWSER=chrome  BVER=unstable
     - os: linux
       sudo: false
