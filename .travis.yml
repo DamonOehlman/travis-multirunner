@@ -57,6 +57,10 @@ matrix:
       env: BROWSER=firefox BVER=unstable
 
 before_script:
+  # Need to update dpkg, else Chrome installation will fail
+  - if [[ "$TRAVIS_OS_NAME" = "linux" ]; then
+      sudo apt-get update && sudo apt-get -y install dpkg;
+    fi;
   - ./setup.sh
   - export DISPLAY=:99.0
   - if [ -f /etc/init.d/xvfb ]; then sh -e /etc/init.d/xvfb start; fi
