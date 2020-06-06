@@ -1,11 +1,11 @@
+dist: bionic
 language: node_js
-dist: trusty
 node_js:
-- "7"
+- 12
 
 env:
   global:
-    - CXX=g++-4.8
+    - DISPLAY=:99.0
 
 matrix:
   include:
@@ -53,9 +53,8 @@ matrix:
       env: BROWSER=firefox BVER=unstable
 
 before_script:
+  - Xvfb :99 &
   - ./setup.sh
-  - export DISPLAY=:99.0
-  - if [ -f /etc/init.d/xvfb ]; then sh -e /etc/init.d/xvfb start; fi
 
 after_failure:
   - for file in *.log; do echo $file; echo "======================"; cat $file; done || true
@@ -63,10 +62,3 @@ after_failure:
 notifications:
   email:
   - damon.oehlman@gmail.com
-
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8

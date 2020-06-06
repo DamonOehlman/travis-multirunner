@@ -24,11 +24,10 @@ fi
 
 echo "Opening $@ in $BROWSER_COMMAND"
 "$BROWSER_COMMAND" --disable-setuid-sandbox \
-  --console \
-  --user-data-dir=$SCRIPTPATH/profiles/$UUID/ \
+#--user-data-dir=$SCRIPTPATH/profiles/$UUID/ \
   --use-fake-device-for-media-stream \
   --use-fake-ui-for-media-stream \
-  --allow-file-access-from-files \
+#  --allow-file-access-from-files \
   --no-default-browser-check \
   --no-sandbox \
   --no-first-run "$@"
