@@ -65,4 +65,7 @@ popd > /dev/null
 # then click on the red camera in the URL bar and choose "Always Allow".
 # Finally copy the `~/Library/SafariTechnologyPreview/UserMediaPermissions.plist` file into the
 # same directory on Travis.
-cp $SCRIPTPATH/UserMediaPermissions.plist ~/Library/$SAFARI_SHORT_NAME/
+# Note:
+# This isn't permitted on macOS 10.14+, but we'll try anyways, in case the user
+# is testing on a version prior to that.
+cp $SCRIPTPATH/UserMediaPermissions.plist ~/Library/$SAFARI_SHORT_NAME/ || true
