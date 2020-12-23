@@ -1,0 +1,22 @@
+name: 'travis-multirunner'
+description: 'Installs a browser using travis-multirunner'
+inputs:
+  browser:
+    description: 'What browser to install'
+    default: 'chrome'
+  version:
+    description: 'What version of the browser to install'
+    default: 'stable'
+outputs:
+  path:
+    description: 'browser binary path'
+    value: ${{steps.setup.outputs.path}}
+runs:
+  using: 'composite'
+  steps: 
+    - id: setup
+      run: ${{github.action_path}}/setup.sh
+      shell: bash
+      env:
+        BROWSER: ${{inputs.browser}}
+        BVER: ${{inputs.version}}

@@ -83,3 +83,7 @@ case $BROWSER in
     fi
     ;;
 esac
+
+# set output path for github action
+echo ::set-output name=path::$TARGET_PATH/$BROWSER
+
