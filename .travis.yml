@@ -10,50 +10,50 @@ env:
 
 matrix:
   include:
-    - os: linux
-      sudo: required
-      env: BROWSER=chrome  BVER=stable
-    - os: linux
-      sudo: required
-      env: BROWSER=chrome  BVER=beta
-    - os: linux
-      sudo: required
-      env: BROWSER=chrome  BVER=unstable
+    # - os: linux
+    #   sudo: required
+    #   env: BROWSER=chrome  BVER=stable
+    # - os: linux
+    #   sudo: required
+    #   env: BROWSER=chrome  BVER=beta
+    # - os: linux
+    #   sudo: required
+    #   env: BROWSER=chrome  BVER=unstable
     - os: linux
       sudo: false
       env: BROWSER=chrome BVER=54.0.2840.71
       dist: trusty
-    - os: linux
-      sudo: false
-      env: BROWSER=firefox BVER=stable
-    - os: linux
-      sudo: false
-      env: BROWSER=firefox BVER=beta
-    - os: linux
-      sudo: false
-      env: BROWSER=firefox BVER=unstable
+    # - os: linux
+    #   sudo: false
+    #   env: BROWSER=firefox BVER=stable
+    # - os: linux
+    #   sudo: false
+    #   env: BROWSER=firefox BVER=beta
+    # - os: linux
+    #   sudo: false
+    #   env: BROWSER=firefox BVER=unstable
     - os: linux
       sudo: false
       env: BROWSER=firefox BVER=46.0.1
       dist: trusty
-    - os: osx
-      sudo: required
-      osx_image: xcode9.2
-      env: BROWSER=safari BVER=stable
-    - os: osx
-      sudo: required
-      osx_image: xcode11.3
-      env: BROWSER=safari BVER=unstable
+    # - os: osx
+    #   sudo: required
+    #   osx_image: xcode9.2
+    #   env: BROWSER=safari BVER=stable
+    # - os: osx
+    #   sudo: required
+    #   osx_image: xcode11.3
+    #   env: BROWSER=safari BVER=unstable
 
   fast_finish: true
 
-  allow_failures:
-    - os: linux
-      sudo: required
-      env: BROWSER=chrome  BVER=unstable
-    - os: linux
-      sudo: false
-      env: BROWSER=firefox BVER=unstable
+  # allow_failures:
+  #   - os: linux
+  #     sudo: required
+  #     env: BROWSER=chrome  BVER=unstable
+  #   - os: linux
+  #     sudo: false
+  #     env: BROWSER=firefox BVER=unstable
 
 before_script:
   # Need to update dpkg, else Chrome installation will fail
