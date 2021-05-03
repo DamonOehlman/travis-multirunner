@@ -1,5 +1,5 @@
 language: node_js
-dist: trusty
+dist: bionic
 node_js:
 - "7"
 
@@ -21,6 +21,7 @@ matrix:
     - os: linux
       sudo: false
       env: BROWSER=chrome BVER=54.0.2840.71
+      dist: trusty
     - os: linux
       sudo: false
       env: BROWSER=firefox BVER=stable
@@ -33,6 +34,7 @@ matrix:
     - os: linux
       sudo: false
       env: BROWSER=firefox BVER=46.0.1
+      dist: trusty
     - os: osx
       sudo: required
       osx_image: xcode9.2
