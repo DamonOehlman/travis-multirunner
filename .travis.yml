@@ -40,10 +40,34 @@ matrix:
     #   sudo: required
     #   osx_image: xcode9.2
     #   env: BROWSER=safari BVER=stable
-    # - os: osx
-    #   sudo: required
-    #   osx_image: xcode11.3
-    #   env: BROWSER=safari BVER=unstable
+    - os: osx
+      sudo: required
+      osx_image: xcode11.3
+      env: BROWSER=safari BVER=unstable OSVER=10.15
+    - os: osx
+      sudo: required
+      osx_image: xcode12.2
+      env: BROWSER=safari BVER=unstable OSVER=10.15
+    - os: osx
+      sudo: required
+      osx_image: xcode12u
+      env: BROWSER=safari BVER=unstable OSVER=10.15
+    - os: osx
+      sudo: required
+      osx_image: xcode12
+      env: BROWSER=safari BVER=unstable OSVER=10.15
+    - os: osx
+      sudo: required
+      osx_image: xcode11.6
+      env: BROWSER=safari BVER=unstable OSVER=10.15
+    - os: osx
+      sudo: required
+      osx_image: xcode11.5
+      env: BROWSER=safari BVER=unstable OSVER=10.15
+    - os: osx
+      sudo: required
+      osx_image: xcode11.4
+      env: BROWSER=safari BVER=unstable OSVER=10.15
 
   fast_finish: true
 
