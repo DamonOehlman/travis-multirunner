@@ -27,6 +27,6 @@
   "dependencies": {
     "djo-shell": "^1.0.0",
     "formatter": "^0.4.1",
-    "normalize-package-data": "^2.3.8"
+    "normalize-package-data": "^5.0.0"
   }
 }
