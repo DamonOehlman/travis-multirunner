@@ -53,6 +53,18 @@ For use with [`broth`](https://github.com/DamonOehlman/broth):
 
 Use with [`smokestack`](https://github.com/hughsk/smokestack) has not yet been investigated...
 
+## Github action
+This package includes a github action. It will export the browser binary
+path and can be used as follows:
+```
+    - id: travis-multirunner
+      uses: fippo/multirunner-action@0.2
+      with:
+        browser: chrome
+        version: stable
+    - run: ${{steps.travis-multirunner.outputs.path}} --version
+```
+
 ## Contributing
 
 If you want to patch travis-multirunner, here's what you have to do:
