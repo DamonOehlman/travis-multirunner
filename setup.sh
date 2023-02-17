@@ -51,8 +51,8 @@ elif [ $BROWSER == "safari" ] && [ $BVER == "unstable" ]; then
 else
   SLEUTHBIN=`node -e 'console.log(require.resolve("browser-sleuth/sleuth.sh"))'`
   TARGET_BROWSER=`$SLEUTHBIN $BROWSER $BVER $PLATFORM`
-  TARGET_URL=`echo $TARGET_BROWSER | cut -d',' -f7`
-  TARGET_VERSION=`echo $TARGET_BROWSER | cut -d',' -f5`
+  TARGET_URL=`echo $TARGET_BROWSER | cut -d'|' -f4`
+  TARGET_VERSION=`echo $TARGET_BROWSER | cut -d'|' -f2`
 fi
 TARGET_PATH=$SCRIPTPATH/browsers/$BROWSER/$TARGET_VERSION
 
