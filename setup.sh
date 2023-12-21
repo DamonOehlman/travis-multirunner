@@ -35,7 +35,15 @@ if [[ $BVER =~ $VERSION_REGEX ]] ; then
  if [ $BROWSER == 'firefox' ] ; then
    TARGET_URL="http://download.cdn.mozilla.net/pub/firefox/releases/$BVER/linux-x86_64/en-US/firefox-$BVER.tar.bz2"
  elif [ $BROWSER == 'chrome' ] ; then
-   TARGET_URL="http://www.slimjet.com/chrome/lnx/chrome64_$BVER.deb"
+   # Parses major version from build version
+   MAJOR_VERSION=`echo $BVER | cut -d '.' -f 1`
+
+   # Download path depends on which version of Chrome is being requested
+   if (( $MAJOR_VERSION > 68 )); then
+     TARGET_URL="https://www.slimjetbrowser.com/chrome/files/$BVER/google-chrome-stable_current_amd64.deb"
+   else
+     TARGET_URL="http://www.slimjet.com/chrome/lnx/chrome64_$BVER.deb"
+   fi;
  else
    echo "Installing specific versions only works for Chrome or Firefox"
  fi
